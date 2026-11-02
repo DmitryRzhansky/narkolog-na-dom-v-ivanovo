@@ -83,19 +83,58 @@
     });
   };
 
+  const initReviewTabs = () => {
+    document.querySelectorAll('[data-reviews]').forEach((root) => {
+      const tabs = [...root.querySelectorAll('[data-review-tab]')];
+      const panels = [...root.querySelectorAll('[data-reviews-panel]')];
+      if (!tabs.length || !panels.length) return;
+
+      const select = (tab, focus = false) => {
+        const selectedId = tab.dataset.reviewTab;
+        tabs.forEach((item) => {
+          const selected = item === tab;
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.reviewsPanel !== selectedId;
+        });
+        if (focus) tab.focus();
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => select(tab));
+        tab.addEventListener('keydown', (event) => {
+          let next = null;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next !== null) {
+            event.preventDefault();
+            select(tabs[next], true);
+          }
+        });
+      });
+
+      select(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
+    });
+  };
+
   const initHorizontalTracks = () => {
     const bind = (rootSelector, trackSelector, prevSelector, nextSelector) => {
       document.querySelectorAll(rootSelector).forEach((root) => {
-        const track = root.querySelector(trackSelector);
-        if (!track) return;
-        const move = (direction) => {
-          const card = track.firstElementChild;
-          const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
-          const step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
-          track.scrollBy({ left: direction * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-        };
-        root.querySelectorAll(prevSelector).forEach((button) => button.addEventListener('click', () => move(-1)));
-        root.querySelectorAll(nextSelector).forEach((button) => button.addEventListener('click', () => move(1)));
+        root.querySelectorAll(trackSelector).forEach((track) => {
+          const panel = track.closest('[data-reviews-panel]') || root;
+          const move = (direction) => {
+            const card = track.firstElementChild;
+            const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+            const step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+            track.scrollBy({ left: direction * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+          };
+          panel.querySelectorAll(prevSelector).forEach((button) => button.addEventListener('click', () => move(-1)));
+          panel.querySelectorAll(nextSelector).forEach((button) => button.addEventListener('click', () => move(1)));
+        });
       });
     };
     bind('[data-reviews]', '[data-reviews-track]', '[data-reviews-prev]', '[data-reviews-next]');
@@ -141,6 +180,7 @@
     initOutreachTabs();
     initDispatchSlider();
     initFaq();
+    initReviewTabs();
     initHorizontalTracks();
     initLightbox();
   };
