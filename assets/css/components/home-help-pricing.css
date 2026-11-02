@@ -1,0 +1,562 @@
+.home-help-pricing {
+  box-sizing: border-box;
+  width: min(calc(100% - 0.75rem), 90rem);
+  margin: var(--section-space) auto;
+  padding: clamp(1rem, 3.5vw, 3.25rem);
+  overflow: visible;
+  border-radius: 1.75rem;
+  background: #f3f7f9;
+  box-shadow: inset 0 0 0 1px rgba(23, 58, 81, 0.08);
+  color: var(--color-text);
+}
+
+.home-help-pricing__title {
+  width: min(100%, 90rem);
+  margin: 0 auto 0.75rem;
+  font-size: clamp(1.8rem, 4.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.home-help-pricing__verified {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto clamp(1.35rem, 2.5vw, 2rem);
+  padding: 0.7rem 1.1rem;
+  border: 1px solid rgba(47, 134, 176, 0.18);
+  border-radius: var(--radius-pill);
+  background: #e8f3f8;
+  color: rgba(23, 58, 81, 0.86);
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.home-help-pricing__verified > .icon {
+  flex: 0 0 auto;
+  color: var(--color-hero);
+  font-size: 1.25rem;
+}
+
+.home-help-pricing__verified > span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.home-help-pricing__verified strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.home-help-pricing__verified time {
+  color: var(--color-hero);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.home-help-pricing__layout {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 90rem);
+  margin: 0 auto;
+}
+
+.home-help-pricing__cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.85rem;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.home-help-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  overflow: hidden;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid rgba(23, 58, 81, 0.08);
+  border-radius: 1.25rem;
+  background: var(--color-surface);
+  box-shadow: 0 0.6rem 1.8rem rgba(23, 58, 81, 0.035);
+}
+
+.home-help-card__heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.home-help-card__title {
+  max-width: 17rem;
+  margin: 0;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.home-help-card__title span {
+  display: block;
+  margin-top: 0.12rem;
+  color: rgba(23, 58, 81, 0.68);
+  font-size: 0.86em;
+  font-weight: 500;
+}
+
+.home-help-card__price {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--color-hero);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.home-help-card__price span {
+  font-size: 0.85em;
+}
+
+.home-help-card__price del {
+  display: block;
+  margin-top: 0.18rem;
+  color: rgba(23, 58, 81, 0.48);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.home-help-card__details {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: 1;
+  grid-template-rows: repeat(4, minmax(auto, 1fr));
+  gap: 0.75rem;
+  margin: 0 0 1.15rem;
+}
+
+.home-help-card__details > div {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 0.12rem;
+  min-width: 0;
+  padding: 0.72rem 0.72rem 0.72rem 3.35rem;
+  border: 1px solid rgba(23, 58, 81, 0.1);
+  border-radius: 0.78rem;
+  background: rgba(243, 247, 249, 0.5);
+}
+
+.home-help-card__details dt {
+  color: var(--color-hero);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.home-help-card__detail-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.78rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  transform: translateY(-50%);
+}
+
+.home-help-card__details > div:nth-child(3) dt .home-help-card__detail-icon {
+  color: #248b55;
+}
+
+.home-help-card__details > div:nth-child(4) dt .home-help-card__detail-icon {
+  color: #d93d42;
+}
+
+.home-help-card__details dd {
+  margin: 0;
+  color: rgba(23, 58, 81, 0.82);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.home-help-card__order {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.7rem;
+  margin-top: auto;
+  padding: 0.55rem 0.75rem 0.55rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: #edf5f8;
+  color: var(--color-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.home-help-card__order .icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background: var(--color-hero);
+  color: #fff;
+  font-size: 0.95rem;
+  transform: rotate(-45deg);
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.home-help-card__order:hover,
+.home-help-card__order:focus-visible {
+  background: var(--color-hero);
+  color: #fff;
+}
+
+.home-help-card__order:hover .icon,
+.home-help-card__order:focus-visible .icon {
+  background: var(--color-accent);
+  transform: rotate(0deg);
+}
+
+.home-help-consult {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-self: start;
+  overflow: hidden;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  border-radius: 1.4rem;
+  background: linear-gradient(145deg, #3188ae 0%, #286f94 100%);
+  color: #fff;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.home-help-consult__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-help-consult__eyebrow .icon {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.home-help-consult__title {
+  max-width: 17rem;
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.home-help-consult__price {
+  margin: 0 0 1.15rem;
+  font-size: clamp(2.15rem, 3vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.home-help-consult__price span {
+  font-size: 0.72em;
+}
+
+.home-help-consult__copy {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.home-help-consult__copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.home-help-consult__copy strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.home-help-consult__doctor {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 14rem);
+  max-height: 16rem;
+  height: auto;
+  margin: 0.35rem auto 0.45rem;
+  object-fit: contain;
+  object-position: center bottom;
+  pointer-events: none;
+}
+
+.home-help-consult__button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 3.35rem;
+  margin-top: auto;
+  padding: 0.45rem 0.5rem 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--transition-base);
+}
+
+.home-help-consult__button .icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  transform: rotate(-45deg);
+  transition: transform var(--transition-base);
+}
+
+.home-help-consult__button:hover,
+.home-help-consult__button:focus-visible {
+  background: var(--color-accent-hover);
+}
+
+.home-help-consult__button:hover .icon,
+.home-help-consult__button:focus-visible .icon {
+  transform: rotate(0deg);
+}
+
+.home-help-pricing__footer {
+  margin-top: 1rem;
+  padding: clamp(1.25rem, 2.8vw, 2rem);
+  border: 1px solid rgba(23, 58, 81, 0.1);
+  border-radius: 1.25rem;
+  background: linear-gradient(120deg, #fff 0%, #f3f8fa 100%);
+  box-shadow: 0 0.8rem 2rem rgba(23, 58, 81, 0.06);
+}
+
+.home-help-pricing__footer-bottom {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-help-pricing__assurance {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 0.95rem;
+  background: #fff4f4;
+  color: rgba(23, 58, 81, 0.9);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.home-help-pricing__assurance > .icon {
+  flex: 0 0 auto;
+  margin-top: 0.08rem;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+.home-help-pricing__assurance strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.home-help-pricing__estimate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 4rem;
+  padding: 0.45rem 0.5rem 0.45rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  line-height: 1.3;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.home-help-pricing__download {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: min(100%, 25rem);
+  min-height: 3.5rem;
+  padding: 0.4rem 0.45rem 0.4rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: var(--color-hero);
+  color: #fff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.3;
+  text-align: left;
+  cursor: default;
+}
+
+.home-help-pricing__download-row {
+  display: flex;
+  justify-content: center;
+  width: min(100%, 90rem);
+  margin: 1rem auto 0;
+}
+
+.home-help-pricing__download:disabled {
+  opacity: 1;
+}
+
+.home-help-pricing__download-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-hero);
+}
+
+.home-help-pricing__download-icon .icon {
+  font-size: 1.25rem;
+}
+
+.home-help-pricing__action-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-accent);
+}
+
+.home-help-pricing__action-icon .icon {
+  font-size: 1.1rem;
+  transform: rotate(-45deg);
+  transition: transform var(--transition-base);
+}
+
+.home-help-pricing__estimate:hover,
+.home-help-pricing__estimate:focus-visible {
+  background: var(--color-accent-hover);
+}
+
+.home-help-pricing__estimate:hover .home-help-pricing__action-icon .icon,
+.home-help-pricing__estimate:focus-visible .home-help-pricing__action-icon .icon {
+  transform: rotate(0deg);
+}
+
+@media (min-width: 40rem) {
+  .home-help-pricing__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .home-help-pricing__layout {
+    grid-template-columns: minmax(0, 1.9fr) minmax(17rem, 0.88fr);
+    gap: 1rem;
+  }
+
+  .home-help-consult {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    padding: 1.25rem 1.35rem;
+  }
+
+  .home-help-pricing__cards {
+    grid-row: 1;
+    gap: 1rem;
+  }
+
+  .home-help-pricing__footer-bottom {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .home-help-consult__doctor {
+    width: min(100%, 17rem);
+    max-height: 24rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-help-card__order,
+  .home-help-card__order .icon,
+  .home-help-consult__button,
+  .home-help-consult__button .icon,
+  .home-help-pricing__estimate,
+  .home-help-pricing__action-icon .icon {
+    transition: none;
+  }
+}

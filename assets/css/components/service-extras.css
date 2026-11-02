@@ -1,0 +1,82 @@
+.service-cities,
+.service-payment {
+  width: min(100% - 40px, var(--container-width, 1200px));
+  margin: clamp(48px, 7vw, 96px) auto;
+}
+
+.service-cities__title,
+.service-payment__title {
+  margin: 0 0 20px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+  color: var(--color-text, #202d39);
+}
+
+.service-cities__list,
+.service-payment__methods,
+.service-payment__notes {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-cities__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.service-cities__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  padding: 18px 22px;
+  border: 1px solid rgba(23, 57, 79, .1);
+  border-radius: 16px;
+  background: #f2f7fa;
+  color: #18384d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.service-cities__link:hover,
+.service-cities__link:focus-visible { color: #d90018; background: #e7f1f6; }
+.service-cities__link:focus-visible { outline: 2px solid #d90018; outline-offset: 3px; }
+
+.service-payment__inner {
+  padding: clamp(24px, 4vw, 48px);
+  border-radius: 28px;
+  background: #edf5f9;
+}
+
+.service-payment__lead { margin: 0 0 24px; line-height: 1.6; }
+.service-payment__methods { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service-payment__method {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  font-weight: 600;
+}
+.service-payment__method-icon {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e7f3f8;
+  color: #2881a9;
+  font-size: 24px;
+}
+.service-payment__notes { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; }
+.service-payment__note { padding: 18px 4px 0; border-top: 1px solid rgba(23, 57, 79, .15); line-height: 1.6; }
+.service-payment__note-title { margin: 0 0 8px; font-size: 18px; line-height: 1.3; }
+.service-payment__note p { margin: 0; }
+
+@media (max-width: 760px) {
+  .service-cities, .service-payment { width: min(100% - 28px, var(--container-width, 1200px)); }
+  .service-cities__list, .service-payment__methods, .service-payment__notes { grid-template-columns: 1fr; }
+}

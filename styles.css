@@ -1,0 +1,78 @@
+/* Standalone page presentation: the original page modules are retained without site chrome. */
+:root {
+  --page-gutter: clamp(0.75rem, 3vw, 2.5rem);
+}
+html { scroll-padding-top: 1.25rem; }
+body { margin: 0; min-width: 320px; background: #fff; }
+body > main.service-page { display: block; width: 100%; }
+/* The site hero normally tucks beneath the global header. In this file it starts at the top. */
+.service-page > .hero {
+  min-height: 0;
+  margin: 0.75rem auto var(--section-space);
+  padding-top: 0.25rem;
+}
+.service-page > .hero .hero__layout { min-height: 0; }
+.service-page > .hero .hero__content { padding-top: 0; }
+.service-page > .hero .hero__photo { max-height: none; }
+.service-page > section:last-child { margin-bottom: 2.5rem; }
+.service-page img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+.standalone-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.75rem, 3vw, 2rem);
+  background: rgba(8, 22, 32, 0.88);
+}
+.standalone-lightbox[hidden] { display: none !important; }
+.standalone-lightbox__dialog {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  width: min(100%, 72rem);
+  max-height: 100%;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 1.25rem;
+  background: #102c3d;
+  color: #fff;
+  box-shadow: 0 1rem 4rem rgba(0,0,0,.35);
+}
+.standalone-lightbox__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: min(78vh, 58rem);
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+.standalone-lightbox__caption { margin: 0; text-align: center; }
+.standalone-lightbox__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 50%;
+  background: #102c3d;
+  color: white;
+  font: inherit;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+body.lightbox-open { overflow: hidden; }
+@media (max-width: 47.99rem) {
+  .service-page > .hero { width: calc(100% - 0.75rem); padding-bottom: 1rem; }
+  .standalone-lightbox__dialog { padding: 3.25rem 0.6rem 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}

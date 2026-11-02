@@ -1,0 +1,120 @@
+@import url("./service-outreach-rich.css");
+
+.field-service,
+.service-advantages {
+  width: min(calc(100% - 0.75rem), 90rem);
+  margin: var(--section-space) auto;
+  color: var(--color-text);
+}
+
+.field-service__heading {
+  display: grid;
+  gap: 1rem;
+  align-items: end;
+}
+
+.service-dispatch {
+  width: min(calc(100% - 0.75rem), 90rem);
+  margin: var(--section-space) auto;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: #edf7fb;
+  color: var(--color-text);
+}
+
+.service-dispatch__heading { display: grid; gap: 1rem; align-items: end; }
+.service-dispatch__heading > p, .service-dispatch__step p, .service-dispatch__urgent { line-height: 1.55; }
+.service-dispatch__steps { display: grid; gap: 0.8rem; margin: 1.5rem 0; padding: 0; list-style: none; }
+.service-dispatch__step { padding: 1.25rem; border-radius: 1.1rem; background: #fff; }
+.service-dispatch__number { color: var(--color-hero); font-weight: 700; }
+.service-dispatch__step h3 { margin: 0.5rem 0; font-size: 1.1rem; }
+.service-dispatch__urgent { margin: 0 0 1rem; }
+
+.field-service__heading > p,
+.field-service__route p,
+.field-service__equipment-card p,
+.service-advantages__card p,
+.service-advantages__intro {
+  line-height: 1.55;
+}
+
+.service-advantages__intro {
+  max-width: 72ch;
+  margin: 0.75rem 0 0;
+}
+
+.field-service__route {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #eaf5f9;
+}
+
+.field-service__route h3,
+.field-service__subheading {
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-weight: 700;
+}
+
+.field-service__subheading { margin: 2rem 0 1rem; }
+
+.field-service__equipment,
+.service-advantages__grid,
+.field-service__districts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.field-service__districts li {
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  background: #eaf5f9;
+}
+
+.field-service__equipment-card,
+.service-advantages__card {
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: #eaf5f9;
+  box-shadow: inset 0 0 0 1px rgba(23, 58, 81, 0.08);
+}
+
+.field-service__equipment-card img,
+.service-advantages__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.field-service__equipment-card > div,
+.service-advantages__card > div { padding: 1.1rem 1.25rem 1.35rem; }
+
+.field-service__equipment-card h4,
+.service-advantages__card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 48rem) {
+  .service-dispatch { width: min(calc(100% - 1.25rem), 90rem); padding: 2rem; }
+  .service-dispatch__heading { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .service-dispatch__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field-service, .service-advantages { width: min(calc(100% - 1.25rem), 90rem); }
+  .field-service__heading { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .field-service__equipment, .service-advantages__grid, .field-service__districts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 64rem) {
+  .service-dispatch__steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .field-service__equipment { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .service-advantages__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field-service__districts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
