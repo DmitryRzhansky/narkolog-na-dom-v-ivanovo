@@ -5,8 +5,8 @@
 }
 
 .stats__header {
-  max-width: 44rem;
-  margin: 0 0 1.35rem;
+  max-width: 64rem;
+  margin: 0 0 1.1rem;
 }
 
 .stats__title {
@@ -26,31 +26,50 @@
   line-height: 1.5;
 }
 
-.stats__source {
-  margin: 1rem 0 0;
-  color: rgba(23, 58, 81, 0.62);
-  font-size: 0.9rem;
-  line-height: 1.45;
-  text-align: center;
+.stats__metrics { margin: 1.35rem 0 1.6rem; }
+
+.stats__subheading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 0.85rem;
+  color: var(--color-text);
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.stats__subheading > .icon {
+  display: grid;
+  flex: 0 0 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: #247f9f;
+  color: #fff;
+  font-size: 1.3rem;
 }
 
 .stats__panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.65rem;
   margin: 0;
-  padding: 0.35rem;
-  border: 1px solid rgba(23, 58, 81, 0.12);
-  border-radius: 1.35rem;
-  background: #f3fafc;
+  padding: 0;
   list-style: none;
 }
 
 .stats__item {
   display: grid;
   gap: 0.65rem;
-  padding: 1.25rem 1.15rem;
-}
-
-.stats__item + .stats__item {
-  border-top: 1px solid rgba(23, 58, 81, 0.1);
+  min-width: 0;
+  padding: 1.15rem;
+  border: 1px solid #e3e8eb;
+  border-radius: 1.05rem;
+  background: #f3fafc;
 }
 
 .stats__icon {
@@ -58,12 +77,15 @@
   place-items: center;
   width: 3.25rem;
   height: 3.25rem;
-  color: var(--color-hero);
+  border-radius: 0.9rem;
+  background: #e2f3f5;
+  color: #087f86;
 }
 
 .stats__icon .icon {
   width: 2.75rem;
-  height: 2.75rem;  font-size: 2.75rem;
+  height: 2.75rem;
+  font-size: 2.15rem;
 }
 
 .stats__value {
@@ -84,64 +106,168 @@
 
 .stats__note {
   margin: 0;
-  color: rgba(23, 58, 81, 0.58);
+  color: #5c7481;
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.4;
 }
 
+.stats__metadata {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.stats__metadata-item {
+  min-width: 0;
+  padding: 1rem 1.15rem;
+  border: 1px solid #e3e8eb;
+  border-radius: 0.95rem;
+  background: #f3fafc;
+}
+
+.stats__metadata dt {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #27657d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.stats__metadata dt .icon {
+  display: grid;
+  flex: 0 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: #dff0f5;
+  color: #167b9b;
+  font-size: 1.1rem;
+}
+
+.stats__metadata dd {
+  margin: 0.35rem 0 0;
+  padding-left: 2.55rem;
+  color: #173a51;
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.stats__privacy {
+  margin: 0.75rem 0 0;
+  padding: 1rem;
+  border: 1px solid #e3e8eb;
+  border-radius: 0.95rem;
+  background: #f3fafc;
+  color: rgba(23, 58, 81, 0.8);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.stats__privacy strong { color: var(--color-text); }
+
+.stats__method {
+  margin-top: 1.35rem;
+  padding: clamp(1rem, 2.2vw, 1.75rem);
+  border: 1px solid #e3e8eb;
+  border-radius: 1.35rem;
+  background: #f3fafc;
+}
+
+.stats__method-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stats__method-item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.7rem;
+  min-width: 0;
+  padding: 0.95rem;
+  border: 1px solid #e3e8eb;
+  border-radius: 0.95rem;
+  background: #fff;
+}
+
+.stats__method-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 0.8rem;
+  background: #e2f3f5;
+  color: #087f86;
+  font-size: 1.35rem;
+}
+
+.stats__step-number {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #e5f2f7;
+  color: var(--color-hero);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.stats__method-item h4 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.stats__method-item p {
+  margin: 0.35rem 0 0;
+  color: rgba(23, 58, 81, 0.76);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.stats__method-item p strong { color: var(--color-text); }
+
+.stats__accuracy-value {
+  display: grid;
+  width: 2.5rem;
+  min-height: 2.5rem;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: #e5f2f7;
+  color: var(--color-hero);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.service-field-rich__panel > .stats {
+  width: 100%;
+  margin: 0;
+}
+
 @media (min-width: 40rem) {
-  .stats__panel {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0;
-    padding: 0.5rem;
-  }
-
-  .stats__item {
-    padding: 1.35rem 1.25rem;
-  }
-
-  .stats__item:nth-child(odd) {
-    border-right: 1px solid rgba(23, 58, 81, 0.1);
-  }
-
-  .stats__item:nth-child(-n + 2) {
-    border-bottom: 1px solid rgba(23, 58, 81, 0.1);
-  }
-
-  .stats__item + .stats__item {
-    border-top: 0;
-  }
+  .stats__panel,
+  .stats__method-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats__metadata { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats__method-item--accuracy { grid-column: 1 / -1; }
 }
 
 @media (min-width: 64rem) {
-  .stats__panel {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding: 0.65rem 0.35rem;
-  }
+  .stats__method-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
-  .stats__item {
-    padding: 1.5rem 1.35rem 1.6rem;
-  }
-
-  .stats__item:nth-child(odd),
-  .stats__item:nth-child(-n + 2) {
-    border-right: 0;
-    border-bottom: 0;
-  }
-
-  .stats__item + .stats__item {
-    border-left: 1px solid rgba(23, 58, 81, 0.1);
-  }
-
-  .stats__icon {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  .stats__icon .icon {
-    width: 3rem;
-    height: 3rem;
-   font-size: 3rem;}
+@media (min-width: 80rem) {
+  .stats__metadata { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .stats__panel { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }

@@ -37,16 +37,16 @@
       const controls = carousel.querySelector('[data-dispatch-controls]');
       const prev = carousel.querySelector('[data-dispatch-prev]');
       const next = carousel.querySelector('[data-dispatch-next]');
-      const status = carousel.querySelector('[data-dispatch-status]');
       if (slides.length < 2 || !controls || !prev || !next) return;
       let current = 0;
       const show = (index) => {
-        current = (index + slides.length) % slides.length;
+        current = Math.max(0, Math.min(index, slides.length - 1));
         slides.forEach((slide, i) => {
           slide.hidden = i !== current;
           slide.setAttribute('aria-hidden', String(i !== current));
         });
-        if (status) status.textContent = `${current + 1} / ${slides.length}`;
+        prev.hidden = current === 0;
+        next.hidden = current === slides.length - 1;
       };
       prev.addEventListener('click', () => show(current - 1));
       next.addEventListener('click', () => show(current + 1));
@@ -56,37 +56,6 @@
       });
       show(0);
       controls.hidden = false;
-    });
-  };
-
-  const initPricesTabs = () => {
-    document.querySelectorAll('[data-prices]').forEach((root) => {
-      const tabs = [...root.querySelectorAll('[data-prices-tab]')];
-      const panels = [...root.querySelectorAll('[data-prices-panel]')];
-      if (!tabs.length || !panels.length) return;
-      const activate = (tab, focus = false) => {
-        tabs.forEach((item) => {
-          const active = item === tab;
-          item.classList.toggle('prices__tab--active', active);
-          item.setAttribute('aria-selected', String(active));
-          item.tabIndex = active ? 0 : -1;
-          const panel = document.getElementById(item.getAttribute('aria-controls'));
-          if (panel && root.contains(panel)) panel.hidden = !active;
-        });
-        if (focus) tab.focus();
-      };
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activate(tab));
-        tab.addEventListener('keydown', (event) => {
-          let next = null;
-          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          if (next !== null) { event.preventDefault(); activate(tabs[next], true); }
-        });
-      });
-      activate(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
     });
   };
 
@@ -171,7 +140,6 @@
   const init = () => {
     initOutreachTabs();
     initDispatchSlider();
-    initPricesTabs();
     initFaq();
     initHorizontalTracks();
     initLightbox();

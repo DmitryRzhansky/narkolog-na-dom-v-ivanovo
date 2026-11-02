@@ -7,6 +7,8 @@
   color: var(--color-text);
 }
 
+.service-advantages > .service-page__title { text-align: center; }
+
 .field-service__heading {
   display: grid;
   gap: 1rem;

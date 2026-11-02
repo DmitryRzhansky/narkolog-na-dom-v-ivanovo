@@ -6,16 +6,12 @@
 
 .service-dispatch .service-dispatch__heading,
 .service-field-rich__header { display: grid; gap: 1rem; align-items: end; }
-.service-dispatch__heading > p, .service-field-rich__header > p { max-width: 37rem; line-height: 1.55; }
-.service-dispatch__contact { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1rem; margin: 1.5rem 0; padding: 1.4rem; border-radius: 1.35rem; background: #dbeef6; }
-.service-dispatch__contact-icon { width: 3rem; height: 3rem; color: #2784aa; }
-.service-dispatch__contact p { margin: 0.25rem 0; line-height: 1.45; }
-.service-dispatch__contact div > a { display: inline-block; color: #173a51; font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 700; text-decoration: none; }
-.service-dispatch__call { grid-column: 1 / -1; display: inline-flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.3rem; border-radius: 999px; background: #e7061a; color: #fff; font-weight: 600; text-decoration: none; }
-.service-dispatch__call span { font-size: 1.4rem; }
+.service-dispatch .service-dispatch__heading { margin-bottom: 1.5rem; }
+.service-dispatch__heading .service-page__title { width: 100%; font-size: clamp(1.75rem, 6vw, 2.7rem); text-align: center; }
+.service-field-rich__header > p { max-width: 37rem; line-height: 1.55; }
 .service-dispatch__carousel { position: relative; }
 .service-dispatch__slides { display: grid; gap: 1rem; }
-.service-dispatch__slide { position: relative; min-height: 30rem; overflow: hidden; border-radius: 1.4rem; background: #d9ebf3; }
+.service-dispatch__slide { position: relative; min-height: 30rem; overflow: hidden; border: 2px solid #b9d3de; border-radius: 1.4rem; background: #d9ebf3; box-shadow: 0 .5rem 1.5rem rgba(23, 58, 81, .08); }
 .service-dispatch__slide[hidden], .service-dispatch__controls[hidden], .service-field-rich [data-outreach-panel][hidden] { display: none; }
 .service-dispatch__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .service-dispatch__slide::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(245,250,252,.98) 0%, rgba(245,250,252,.96) 48%, rgba(245,250,252,.62) 72%, rgba(245,250,252,.12) 100%); content: ""; }
@@ -28,15 +24,18 @@
 .service-dispatch__details li::marker { color: #e7061a; }
 .field-service .field-service__districts { list-style: disc inside; }
 .field-service .field-service__districts li::marker { color: #e7061a; }
-.service-dispatch .service-dispatch__urgent { margin: 1.2rem 0 0; padding: 1rem; border-left: .22rem solid #e7061a; border-radius: .75rem; background: #fff; }
+.service-dispatch .service-dispatch__urgent { margin: 1.2rem 0 0; padding: 1rem; border: 2px solid #e7061a; border-radius: .75rem; background: #fff; }
+.service-dispatch__urgent strong { display: flex; align-items: center; gap: .5rem; }
+.service-dispatch__urgent-icon { width: 1.4rem; height: 1.4rem; color: #e7061a; font-size: 1.4rem; }
 .service-dispatch__urgent p { margin: .35rem 0 0; }
 .service-dispatch__urgent a { color: inherit; font-weight: 700; }
-.service-dispatch__controls { display: flex; align-items: center; gap: .8rem; margin-top: .8rem; color: #27516a; font-weight: 600; }
-.service-dispatch__arrow { display: inline-flex; align-items: center; justify-content: center; min-height: 2.8rem; padding: .65rem 1.1rem; border: 0; border-radius: 999px; background: #287fa5; color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
-.service-dispatch__arrow:hover { background: #1f6889; }
-.service-dispatch__travel { display: flex; align-items: start; gap: .9rem; margin-top: 1.3rem; padding: 1.2rem 1.4rem; border-radius: 1.1rem; background: #fff; }
-.service-dispatch__travel .icon { flex: 0 0 auto; width: 1.5rem; height: 1.5rem; color: #e7061a; }
-.service-dispatch__travel p { margin: .35rem 0 0; line-height: 1.5; }
+.service-dispatch__controls { position: absolute; top: 50%; right: 0; left: 0; z-index: 3; height: 0; pointer-events: none; }
+.service-dispatch__arrow { position: absolute; top: 0; display: inline-flex; width: 3rem; height: 3rem; align-items: center; justify-content: center; padding: 0; border: 1px solid #b9d3de; border-radius: 50%; background: #fff; color: #20445a; font: inherit; cursor: pointer; pointer-events: auto; box-shadow: 0 .25rem .75rem rgba(23, 58, 81, .12); transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+.service-dispatch__arrow[data-dispatch-prev] { left: 0; transform: translate(-50%, -50%); }
+.service-dispatch__arrow[data-dispatch-next] { right: 0; transform: translate(50%, -50%); }
+.service-dispatch__arrow[hidden] { display: none; }
+.service-dispatch__arrow .icon { width: 1.25rem; height: 1.25rem; font-size: 1.25rem; }
+.service-dispatch__arrow:hover { border-color: #287fa5; background: #287fa5; color: #fff; }
 
 .service-field-rich { width: min(calc(100% - .75rem), 90rem); margin: var(--section-space) auto; padding: clamp(1.1rem, 2.4vw, 2.4rem); border-radius: 1.75rem; background: #eff7fa; color: var(--color-text); }
 .service-field-rich__header { margin-bottom: 1.4rem; }
@@ -78,11 +77,29 @@
 .service-field-rich__vehicle-device .service-field-rich__device-image img { height: 100%; min-height: 0; max-height: none; object-fit: cover; }
 .service-field-rich__vehicle-device .service-field-rich__device-label { margin-top: .45rem; }
 .service-field-rich__vehicle-info { display: grid; align-content: start; gap: .75rem; }
-.service-field-rich__dispatch-order { margin-top: 1.5rem; padding: clamp(1rem, 2vw, 1.6rem); border-radius: 1.1rem; background: #eaf5f9; }
-.service-field-rich__dispatch-order .service-field-rich__panel-title { margin-top: 0; }
-.service-field-rich__dispatch-order ol { display: grid; gap: .75rem; margin: 0; padding-left: 1.4rem; line-height: 1.55; }
-.service-field-rich__dispatch-order li::marker { color: #e7061a; font-weight: 700; }
+.service-field-rich__dispatch-order { margin-top: 1.5rem; padding: clamp(1rem, 2vw, 1.6rem); border: 1px solid #c6dce5; border-radius: 1.1rem; background: linear-gradient(135deg, #f3fafc, #eaf5f9); box-shadow: 0 .4rem 1.2rem rgba(23, 58, 81, .06); }
+.service-field-rich__dispatch-order .service-field-rich__panel-title { margin: 0 0 1rem; color: #173a51; font-size: clamp(1.2rem, 1.7vw, 1.5rem); line-height: 1.25; text-align: center; }
+.service-field-rich__dispatch-order ol { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; counter-reset: dispatch-step; }
+.service-field-rich__dispatch-order li { position: relative; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); align-items: start; gap: .8rem; padding: 1rem; border: 1px solid #d7e8ee; border-radius: .9rem; background: #fff; box-shadow: 0 .25rem .8rem rgba(23, 58, 81, .045); line-height: 1.55; }
+.service-field-rich__dispatch-order li::before { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border-radius: .7rem; background: #fde9ec; color: #e7061a; content: counter(dispatch-step, decimal-leading-zero); counter-increment: dispatch-step; font-size: .82rem; font-weight: 800; }
+.service-field-rich__dispatch-step-copy { min-width: 0; }
+.service-field-rich__dispatch-step-copy h4 { margin: 0 0 .4rem; color: #214f67; font-size: .98rem; font-weight: 700; line-height: 1.35; }
+.service-field-rich__dispatch-step-copy p { margin: 0; line-height: 1.55; }
+.service-field-rich__dispatch-arrow { position: absolute; width: 1.35rem; height: 1.35rem; color: #287fa5; font-size: 1.35rem; }
+@media (max-width: 71.99rem) {
+  .service-field-rich__dispatch-order ol { row-gap: 1.4rem; }
+  .service-field-rich__dispatch-arrow { bottom: -1.2rem; left: 50%; transform: translateX(-50%) rotate(90deg); }
+}
+@media (min-width: 72rem) {
+  .service-field-rich__dispatch-order ol { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 2.25rem; }
+  .service-field-rich__dispatch-arrow { top: 50%; right: -1.75rem; transform: translateY(-50%); }
+}
 .service-field-rich__geo, .service-field-rich__transport { display: grid; gap: 1.4rem; }
+.service-field-rich__districts { grid-column: 1 / -1; }
+.service-field-rich__districts-note { display: grid; gap: .8rem; margin: 1rem 0 0; padding: 1rem 1.2rem; border: 1px solid #c6dce5; border-radius: 1rem; background: #f3fafc; color: rgba(23, 58, 81, .82); font-size: .88rem; line-height: 1.6; }
+.service-field-rich__districts-note p { margin: 0; }
+.service-field-rich__districts-note strong { color: #173a51; }
+.service-field-rich__districts-note code { padding: .12rem .35rem; border-radius: .3rem; background: #e4f0f5; color: #173a51; font-family: monospace; font-size: .9em; }
 .service-field-rich__route-list { padding: 1.4rem; border-radius: 1.1rem; background: #e8f4f8; }
 .service-field-rich__route-list > span { display: block; margin-bottom: .8rem; font-weight: 700; }
 .service-field-rich__route-list ul { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
@@ -91,16 +108,17 @@
 .service-field-rich__transport img { display: block; width: 100%; height: 100%; min-height: 14rem; border-radius: 1rem; object-fit: cover; }
 .service-dispatch button:focus-visible, .service-dispatch a:focus-visible, .service-field-rich button:focus-visible { outline: .2rem solid #e7061a; outline-offset: .15rem; }
 @media (min-width: 48rem) {
-  .service-dispatch .service-dispatch__heading, .service-field-rich__header, .service-field-rich__panel-intro, .service-field-rich__device, .service-field-rich__geo, .service-field-rich__transport { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; }
+  .service-dispatch .service-dispatch__heading { grid-template-columns: minmax(0, 1fr); }
+  .service-field-rich__header, .service-field-rich__panel-intro, .service-field-rich__device, .service-field-rich__geo, .service-field-rich__transport { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; }
   .service-field-rich__equipment-device .service-field-rich__device-image { position: sticky; top: 6rem; }
   .service-field-rich__vehicle-device .service-field-rich__device-image { position: sticky; top: 6rem; }
-  .service-dispatch__contact { grid-template-columns: auto minmax(0, 1fr) auto; }
-  .service-dispatch__call { grid-column: auto; }
   .service-field-rich { width: min(calc(100% - 1.25rem), 90rem); }
 }
 @media (max-width: 47.99rem) {
   .service-dispatch__slide::after { background: rgba(245,250,252,.9); }
   .service-dispatch__slide { min-height: 0; }
   .service-dispatch__slide-content { padding: 1.3rem; }
+  .service-dispatch__arrow { width: 2.5rem; height: 2.5rem; }
+  .service-dispatch__arrow .icon { width: 1.1rem; height: 1.1rem; font-size: 1.1rem; }
   .service-dispatch__details { font-size: .95rem; }
 }

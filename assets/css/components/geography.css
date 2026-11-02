@@ -146,6 +146,15 @@
   min-width: 0;
 }
 
+.geography__city-time {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .geography__city-arrow {
   display: grid;
   place-items: center;

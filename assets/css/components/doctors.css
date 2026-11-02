@@ -127,6 +127,94 @@
   line-height: 1.25;
 }
 
+.doctor-profile__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.8rem;
+  margin: -0.1rem 0 0.2rem;
+}
+
+.doctor-profile__credentials,
+.doctor-profile__social-list,
+.doctors__platforms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doctor-profile__credentials li {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.38rem 0.25rem 0.65rem;
+  border: 1px solid rgba(23, 58, 81, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  color: rgba(23, 58, 81, 0.9);
+  font-size: 0.74rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.doctor-profile__credentials .icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-hero);
+  font-size: 1rem;
+}
+
+.doctor-profile__credentials strong {
+  display: grid;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  place-items: center;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: #e6f6f6;
+  color: #159b96;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.doctor-profile__socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.doctor-profile__socials-label {
+  color: rgba(23, 58, 81, 0.55);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.doctor-profile__social-list { gap: 0.3rem; }
+
+.doctor-profile__social-list li {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid rgba(23, 58, 81, 0.12);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.doctor-profile__social-list img {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  object-fit: contain;
+}
+
 .doctor-profile__bio {
   margin: 0;
   color: rgba(23, 58, 81, 0.7);
@@ -198,6 +286,72 @@
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.45;
+}
+
+.doctors__footer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(23, 58, 81, 0.1);
+  border-radius: 1.25rem;
+  background: #f3fafc;
+}
+
+.doctors__requalification {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.doctors__requalification .icon {
+  display: grid;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-hero);
+  font-size: 1.25rem;
+}
+
+.doctors__verification > p {
+  margin: 0 0 0.55rem;
+  color: rgba(23, 58, 81, 0.74);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.doctors__platforms { gap: 0.45rem; }
+
+.doctors__platforms li {
+  display: inline-flex;
+  min-height: 2.35rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(23, 58, 81, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-text);
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.doctors__platforms img {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
 }
 
 .doctor-profile--full .doctor-profile__meta {
@@ -303,5 +457,16 @@
 
   .doctor-profile__body {
     padding: 1.2rem 1.2rem 1.35rem;
+  }
+}
+
+@media (max-width: 39.99rem) {
+  .doctors__footer {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+  }
+
+  .doctor-profile__highlights {
+    align-items: flex-start;
   }
 }
