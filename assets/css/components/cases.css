@@ -52,6 +52,50 @@
   display: none;
 }
 
+.cases__disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid #dcebf0;
+  border-radius: 0.8rem;
+  background: #f4fafc;
+}
+
+.cases__disclaimer-icon {
+  display: grid;
+  flex: 0 0 2.6rem;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: #fdebed;
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+.cases__disclaimer-copy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.cases__disclaimer-title {
+  color: var(--color-text);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cases__disclaimer p {
+  margin: 0;
+  color: rgba(23, 58, 81, 0.72);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
 .cases__item {
   flex: 0 0 100%;
   min-width: 0;
