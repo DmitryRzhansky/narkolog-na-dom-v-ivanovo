@@ -157,6 +157,16 @@
   font-weight: 700;
 }
 
+.faq-item__answer a {
+  color: var(--color-hero);
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.15em;
+}
+
+.faq-item__answer a:hover {
+  color: var(--color-accent);
+}
+
 .faq-item__author {
   display: flex;
   align-items: center;

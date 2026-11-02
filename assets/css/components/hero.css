@@ -76,14 +76,23 @@
 }
 
 .hero__breadcrumbs {
+  width: 100%;
+  min-width: 0;
   margin: 0;
 }
 
 .hero__breadcrumbs-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.35rem 0.5rem;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -93,8 +102,11 @@
   line-height: 1.3;
 }
 
+.hero__breadcrumbs-list::-webkit-scrollbar { display: none; }
+
 .hero__breadcrumbs-item {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 0.5rem;
 }
@@ -361,7 +373,11 @@ a.hero__meta-value:hover {
 .hero__person {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: stretch;
+  justify-self: center;
+  width: min(100%, 34rem);
+  gap: 0.85rem;
 }
 
 .hero__photo {
@@ -381,11 +397,11 @@ a.hero__meta-value:hover {
 }
 
 .doctor-card__photo {
-  align-self: flex-start;
-  width: 4.25rem;
-  height: 4.25rem;
+  width: 7rem;
+  height: 7rem;
   object-fit: cover;
   object-position: center top;
+  align-self: center;
   border-radius: 0.9rem;
 }
 
@@ -447,7 +463,7 @@ a.hero__meta-value:hover {
 
 .doctor-card__statement {
   position: relative;
-  align-self: center;
+  align-self: flex-start;
   width: min(100%, 18rem);
   margin: 0;
   padding: 0.65rem 0.75rem;
@@ -604,6 +620,9 @@ a.hero__meta-value:hover {
   .hero__person {
     min-height: 42rem;
     justify-content: center;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0;
   }
 
   .hero__photo {
